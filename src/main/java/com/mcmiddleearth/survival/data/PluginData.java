@@ -82,10 +82,14 @@ public class PluginData {
     }
     
     private static void saveJoinLocation(Player player) {
+        List<OfflinePlayer> removeList = new ArrayList<>();
         for(OfflinePlayer search: joinLocations.keySet()) {
             if(BukkitUtil.isSame(search, player)) {
-                joinLocations.remove(search);
+                removeList.add(search);
             }
+        }
+        for(OfflinePlayer found: removeList) {
+            joinLocations.remove(found);
         }
         joinLocations.put(player, player.getLocation());
     }
