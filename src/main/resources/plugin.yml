@@ -1,0 +1,17 @@
+name: Survival
+main: com.mcmiddleearth.survival.SurvivalPlugin
+version: 0.1
+description: Survival map teleportation plugin
+load: POSTWORLD
+depend: [Multiverse-Core]
+commands:
+    survival:
+        description: teleports a player to and from the survival map
+        usage: TBA
+permissions:
+    survival.staff:
+        default: op
+        children:
+            survival.user: true
+    survival.user:
+        default: true
