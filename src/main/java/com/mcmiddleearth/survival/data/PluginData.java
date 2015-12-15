@@ -49,6 +49,12 @@ public class PluginData {
     private static final File playerFile = new File(SurvivalPlugin.getPluginInstance().getDataFolder()
                                                    + File.separator + "SuvivalPlayers.suv");
     
+    static {
+        if(!SurvivalPlugin.getPluginInstance().getDataFolder().exists()) {
+            SurvivalPlugin.getPluginInstance().getDataFolder().mkdirs();
+        }
+    }
+
     public static boolean isInSurvival(OfflinePlayer player) {
         for(OfflinePlayer search : survivalPlayers) {
             if(BukkitUtil.isSame(search, player)) {
